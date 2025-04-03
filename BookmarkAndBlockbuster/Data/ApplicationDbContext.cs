@@ -15,6 +15,8 @@ namespace BookmarkAndBlockbuster.Data
 
         public DbSet<Movie> Movies { get; set; }
 
+        public DbSet<Hall> Halls { get; set; }
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookmarkAndBlockbuster.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250403111451_Book")]
-    partial class Book
+    [Migration("20250403111451_author")]
+    partial class author
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

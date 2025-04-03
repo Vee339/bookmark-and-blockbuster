@@ -5,7 +5,7 @@
 namespace BookmarkAndBlockbuster.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class Book : Migration
+    public partial class author : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

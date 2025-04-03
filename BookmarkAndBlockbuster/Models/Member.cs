@@ -14,5 +14,12 @@ namespace BookmarkAndBlockbuster.Models
         public required string MemberPhone { get; set; }
 
         public string? MemberEmail { get; set; }
+
+        // A member can have borrowd many books
+        public ICollection<Book>? Books { get; set; }
+
+        // A member can have borrowed many movies
+
+        public ICollection<Movie>? Movies { get; set; }
     }
 }

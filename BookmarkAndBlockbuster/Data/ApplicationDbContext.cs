@@ -17,6 +17,8 @@ namespace BookmarkAndBlockbuster.Data
 
         public DbSet<Hall> Halls { get; set; }
 
+        public DbSet<BooksLog> BooksLogs { get; set; }
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {

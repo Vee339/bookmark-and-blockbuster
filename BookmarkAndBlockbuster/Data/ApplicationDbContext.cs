@@ -8,6 +8,9 @@ namespace BookmarkAndBlockbuster.Data
     {
 
         public DbSet<Member> Members { get; set; }
+
+        public DbSet<Author> Authors { get; set; }
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {

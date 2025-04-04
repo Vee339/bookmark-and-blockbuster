@@ -10,7 +10,7 @@ namespace BookmarkAndBlockbuster.Models
 
       public required string BookTitle { get; set; }
 
-      [ForeignKey("Authors")]
+      [ForeignKey("Author")]
       public required int AuthorId { get; set; }
 
       public int? PublishedYear { get; set; }

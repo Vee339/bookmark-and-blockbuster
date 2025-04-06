@@ -17,8 +17,11 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 
-// Associate Service Interfaces with their implemenations
+// Associate Service Interfaces with their implementations
 builder.Services.AddScoped<IMemberService, MemberService>();
+builder.Services.AddScoped<IBookService, BookService>();
+builder.Services.AddScoped<IAuthorService, AuthorService>();
+
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -46,7 +49,6 @@ app.UseAuthorization();
 
 app.UseSwagger();
 app.UseSwaggerUI();
-
 
 app.MapControllerRoute(
     name: "default",

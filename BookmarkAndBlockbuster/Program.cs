@@ -21,6 +21,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IMemberService, MemberService>();
 builder.Services.AddScoped<IBookService, BookService>();
 builder.Services.AddScoped<IAuthorService, AuthorService>();
+builder.Services.AddScoped<IHallService, HallService>();
+builder.Services.AddScoped<IMovieService, MovieService>();
 
 
 builder.Services.AddEndpointsApiExplorer();

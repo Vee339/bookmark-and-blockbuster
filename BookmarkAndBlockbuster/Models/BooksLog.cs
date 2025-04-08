@@ -10,9 +10,11 @@ namespace BookmarkAndBlockbuster.Models
 
         [ForeignKey("Members")]
         public required int MemberId { get; set; }
+        public virtual Member? Member { get; set; }
 
         [ForeignKey("Books")]
         public required int BookId { get; set; }
+        public virtual Book? Book { get; set; }
 
         public required DateOnly BorrowDate { get; set; }
 

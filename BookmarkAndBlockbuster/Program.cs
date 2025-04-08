@@ -25,6 +25,7 @@ builder.Services.AddScoped<IHallService, HallService>();
 builder.Services.AddScoped<IMovieService, MovieService>();
 builder.Services.AddScoped<IScreeningService, ScreeningService>();
 builder.Services.AddScoped<IBooksLogService, BooksLogService>();
+builder.Services.AddScoped<IMoviesLogService, MoviesLogService>();
 
 
 builder.Services.AddEndpointsApiExplorer();

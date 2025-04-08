@@ -12,9 +12,12 @@ namespace BookmarkAndBlockbuster.Models
 
         [ForeignKey("Movie")]
         public int? MovieId { get; set; }
+        public virtual Movie? Movie { get; set; }
 
         [ForeignKey("Hall")]
         public int? Id { get; set; }
+
+        public virtual Hall? Hall { get; set; }
 
         public DateOnly ScreeningDate { get; set; }
 

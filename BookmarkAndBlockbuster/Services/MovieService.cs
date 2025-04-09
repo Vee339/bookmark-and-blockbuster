@@ -130,6 +130,14 @@ namespace BookmarkAndBlockbuster.Services
             return MovieDtos;
         }
 
+        public async Task<IEnumerable<Movie>> ListMoviesForMember(int id)
+        {
+
+            List<Movie> Movies = await _context.Movies.Join(_context.MoviesLogs, Movie => Movie.MovieId, MoviesLog => MoviesLog.MovieId, (Movie, MoviesLog) => new { Movie, MoviesLog}).Where(ms => ms.MoviesLog.MemberId == id).Select(ms => ms.Movie).ToListAsync();
+
+            return Movies;
+        }
+
         private bool MovieExists(int id)
         {
             return _context.Movies.Any(e => e.MovieId == id);

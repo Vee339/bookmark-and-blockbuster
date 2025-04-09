@@ -10,6 +10,9 @@ namespace BookmarkAndBlockbuster.Interfaces
         Task<string> UpdateBook(int id, Book book);
         Task<string> DeleteBook(int id);
         Task<IEnumerable<Book>> ListBooksForAuthor(int id);
+
+        Task<IEnumerable<Book>> ListBooksForMember(int id);
+
     }
 }
 

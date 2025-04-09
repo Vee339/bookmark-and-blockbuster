@@ -87,6 +87,15 @@ namespace BookmarkAndBlockbuster.Services
             return books;
         }
 
+        public async Task<IEnumerable<Book>> ListBooksForMember(int id)
+        {
+
+            List<Book> Books = await _context.Books.Join(_context.BooksLogs, Book => Book.BookId, BooksLog => BooksLog.BookId, (Book, BooksLog) => new { Book, BooksLog }).Where(ms => ms.BooksLog.MemberId == id).Select(ms => ms.Book).ToListAsync();
+
+            return Books;
+        }
+
+
         private bool BookExists(int id)
         {
             return _context.Books.Any(b => b.BookId == id);

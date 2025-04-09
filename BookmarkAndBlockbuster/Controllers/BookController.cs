@@ -4,6 +4,7 @@ using BookmarkAndBlockbuster.Models;
 using BookmarkAndBlockbuster.Interfaces;
 using Microsoft.AspNetCore.Http.HttpResults;
 using BookmarkAndBlockbuster.Data.Migrations;
+using BookmarkAndBlockbuster.Services;
 
 namespace BookmarkAndBlockbuster.Controllers
 {
@@ -83,12 +84,21 @@ namespace BookmarkAndBlockbuster.Controllers
             return NoContent();
         }
 
-        [HttpGet(template: "GetBooksForAuthor/{id}")]
+        [HttpGet(template: "ListBooksForAuthor/{id}")]
         public async Task<ActionResult<IEnumerable<Book>>> ListBooksForAuthor(int id)
         {
             IEnumerable<Book> Books = await _bookService.ListBooksForAuthor(id);
             return Ok(Books);
 
+        }
+
+        [HttpGet(template: "ListBooksForMember/{id}")]
+        public async Task<ActionResult<IEnumerable<Book>>> ListBooksForMember(int id)
+        {
+
+            IEnumerable<Book> Books = await _bookService.ListBooksForMember(id);
+
+            return Ok(Books);
         }
     }
 }

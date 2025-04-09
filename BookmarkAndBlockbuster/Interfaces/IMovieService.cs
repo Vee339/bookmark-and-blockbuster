@@ -16,5 +16,7 @@ namespace BookmarkAndBlockbuster.Interfaces
 
         public Task<IEnumerable<MovieDto>> ListMoviesForAuthor(int id);
 
+        public Task<IEnumerable<Movie>> ListMoviesForMember(int id);
+
     }
 }

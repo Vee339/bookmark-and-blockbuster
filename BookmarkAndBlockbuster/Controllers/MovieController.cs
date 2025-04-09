@@ -89,5 +89,13 @@ namespace BookmarkAndBlockbuster.Controllers
             return Ok(Movies);
         }
 
+        [HttpGet(template: "ListMoviesForMember/{id}")]
+        public async Task<ActionResult<IEnumerable<Movie>>> ListMoviesForMember(int id)
+        {
+
+            IEnumerable<Movie> Movies = await _movieService.ListMoviesForMember(id);
+
+            return Ok(Movies);
+        }
     }
 }

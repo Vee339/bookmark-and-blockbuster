@@ -82,5 +82,13 @@ namespace BookmarkAndBlockbuster.Controllers
 
             return NoContent();
         }
+
+        [HttpGet(template: "GetBooksForAuthor/{id}")]
+        public async Task<ActionResult<IEnumerable<Book>>> ListBooksForAuthor(int id)
+        {
+            IEnumerable<Book> Books = await _bookService.ListBooksForAuthor(id);
+            return Ok(Books);
+
+        }
     }
 }

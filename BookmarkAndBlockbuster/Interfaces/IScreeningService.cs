@@ -13,5 +13,10 @@ namespace BookmarkAndBlockbuster.Interfaces
         public Task<string> EditScreening(int id, Screening screening);
 
         public Task<string> DeleteScreening(int id);
+
+        public Task<IEnumerable<ScreeningDto>> ListScreeningsForMovie(int id);
+
+        public Task<IEnumerable<ScreeningDto>> ListScreeningsForHall(int id);
+
     }
 }

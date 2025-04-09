@@ -107,6 +107,29 @@ namespace BookmarkAndBlockbuster.Services
             return "No Content";
         }
 
+        public async Task<IEnumerable<MovieDto>> ListMoviesForAuthor(int id)
+        {
+            List<Movie> Movies = await _context.Movies.Include(m => m.Author).Where(m => m.AuthorId == id).ToListAsync();
+
+            List<MovieDto> MovieDtos = new List<MovieDto>();
+
+            foreach (Movie Movie in Movies)
+            {
+                MovieDto MovieDto = new MovieDto
+                {
+                    MovieId = Movie.MovieId,
+                    MovieName = Movie.Title,
+                    Genre = Movie.Genre,
+                    ReleaseYear = Movie.ReleaseYear,
+                    AuthorName = Movie.Author.AuthorName
+                };
+
+
+                MovieDtos.Add(MovieDto);
+            }
+            return MovieDtos;
+        }
+
         private bool MovieExists(int id)
         {
             return _context.Movies.Any(e => e.MovieId == id);

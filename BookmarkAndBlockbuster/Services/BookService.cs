@@ -81,6 +81,12 @@ namespace BookmarkAndBlockbuster.Services
             return "No Content";
         }
 
+        public async Task<IEnumerable<Book>> ListBooksForAuthor(int id)
+        {
+            List<Book> books = await _context.Books.Include(b => b.Author).Where(b => b.AuthorId == id).ToListAsync();
+            return books;
+        }
+
         private bool BookExists(int id)
         {
             return _context.Books.Any(b => b.BookId == id);

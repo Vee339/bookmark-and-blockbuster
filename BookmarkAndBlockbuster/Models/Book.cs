@@ -12,6 +12,7 @@ namespace BookmarkAndBlockbuster.Models
 
       [ForeignKey("Author")]
       public required int AuthorId { get; set; }
+      public virtual Author? Author { get; set; }
 
       public int? PublishedYear { get; set; }
 

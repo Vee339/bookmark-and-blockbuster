@@ -80,5 +80,25 @@ namespace BookmarkAndBlockbuster.Controllers
             return NoContent();
         }
 
+        [HttpGet(template: "ListScreeningsForMovie/{id}")]
+
+        public async Task<ActionResult<IEnumerable<ScreeningDto>>> ListScreeningsForMovie(int id)
+        {
+
+            IEnumerable<ScreeningDto> ScreeningDtos = await _screeningService.ListScreeningsForMovie(id);
+
+
+            return Ok(ScreeningDtos);
+        }
+
+        [HttpGet(template: "ListScreeningsForHall/{id}")]
+
+        public async Task<ActionResult<IEnumerable<ScreeningDto>>> ListScreeningsForHall(int id)
+        {
+
+            IEnumerable<ScreeningDto> ScreeningDtos = await _screeningService.ListScreeningsForHall(id);
+
+            return Ok(ScreeningDtos);
+        }
     }
 }

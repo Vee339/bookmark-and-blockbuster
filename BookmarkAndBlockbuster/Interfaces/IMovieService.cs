@@ -14,5 +14,7 @@ namespace BookmarkAndBlockbuster.Interfaces
 
         public Task<string> DeleteMovie(int id);
 
+        public Task<IEnumerable<MovieDto>> ListMoviesForAuthor(int id);
+
     }
 }

@@ -110,6 +110,55 @@ namespace BookmarkAndBlockbuster.Services
 
             return "No Content";
         }
+
+        public async Task<IEnumerable<ScreeningDto>> ListScreeningsForMovie(int id)
+        {
+            List<Screening> Screenings = await _context.Screenings.Include(s => s.Movie).Include(s => s.Hall).Where(s => s.MovieId == id).ToListAsync();
+
+            List<ScreeningDto> ScreeningDtos = new List<ScreeningDto>();
+
+            foreach (Screening Screening in Screenings)
+            {
+                ScreeningDto ScreeningDto = new ScreeningDto
+                {
+                    ScreeningId = Screening.ScreeningId,
+                    Movie = Screening.Movie.Title,
+                    Hall = Screening.Hall.Name + " " + Screening.Hall.Location,
+                    ShowDate = Screening.ScreeningDate,
+                    StartTime = Screening.StartTime,
+                    EndTime = Screening.EndTime
+                };
+                ScreeningDtos.Add(ScreeningDto);
+            }
+
+            return ScreeningDtos;
+        }
+
+        public async Task<IEnumerable<ScreeningDto>> ListScreeningsForHall(int id)
+        {
+            List<Screening> Screenings = await _context.Screenings.Include(s => s.Movie).Include(s => s.Hall).Where(s => s.Id == id).ToListAsync();
+
+            List<ScreeningDto> ScreeningDtos = new List<ScreeningDto>();
+
+            foreach (Screening Screening in Screenings)
+            {
+                ScreeningDto ScreeningDto = new ScreeningDto
+                {
+                    ScreeningId = Screening.ScreeningId,
+                    Movie = Screening.Movie.Title,
+                    Hall = Screening.Hall.Name + " " + Screening.Hall.Location,
+                    ShowDate = Screening.ScreeningDate,
+                    StartTime = Screening.StartTime,
+                    EndTime = Screening.EndTime
+                };
+
+                
+
+                ScreeningDtos.Add(ScreeningDto);
+            }
+
+            return ScreeningDtos;
+        }
         private bool ScreeningExists(int id)
         {
             return _context.Screenings.Any(e => e.ScreeningId == id);

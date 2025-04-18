@@ -87,5 +87,21 @@ namespace BookmarkAndBlockbuster.Controllers
                 return NoContent();
             }
         }
+
+        [HttpGet(template: "GetBooksLogForMember/{id}")]
+        public async Task<ActionResult<IEnumerable<BooksLogDto>>> GetBooksLogForMember(int id)
+        {
+            IEnumerable<BooksLogDto> BooksLogDtos = await _booksLogService.GetBooksLogForMember(id);
+
+            return Ok(BooksLogDtos);
+        }
+
+        [HttpGet(template: "GetBooksLogForBook/{id}")]
+        public async Task<ActionResult<IEnumerable<BooksLogDto>>> GetBooksLogForBook(int id)
+        {
+            IEnumerable<BooksLogDto> BooksLogDtos = await _booksLogService.GetBooksLogForBook(id);
+
+            return Ok(BooksLogDtos);
+        }
     }
 }

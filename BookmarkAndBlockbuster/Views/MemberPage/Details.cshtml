@@ -1,0 +1,66 @@
+﻿@model BookmarkAndBlockbuster.Models.ViewModels.MemberDetails
+
+<main class="details">
+    <header>
+        <h1>Personal Information of @Model.Member.MemberName</h1>
+        <a href="/MemberPage/Edit/@Model.Member.MemberId">Edit</a>
+        <a href="/MemberPage/ConfirmDelete/@Model.Member.MemberId">Delete</a>
+    </header>
+  
+
+   <section class="info">
+        <p>Id: @Model.Member.MemberId</p>
+        <p>Date of Birth: @Model.Member.BirthDate</p>
+        <p>Phone number: @Model.Member.MemberPhone</p>
+        <p>Email Address: @Model.Member.MemberEmail</p>
+   </section>
+   <section class="booksLog">
+       <table border="1">
+           <thead>
+               <tr>
+                    <th>Borrow Id</th>
+                    <th>Book Title</th>
+                    <th>Borrow Date</th>
+                    <th>Due Date</th>
+                    <th>Return Date</th>
+               </tr>
+            </thead>
+            <tbody>
+                @foreach(var Book in Model.MemberBooks){
+                    <tr>
+                        <td>@Book.BorrowId</td>
+                        <td>@Book.BookName</td>
+                        <td>@Book.BorrowDate</td>
+                        <td>@Book.DueDate</td>
+                        <td>@Book.ReturnDate</td>
+                    </tr>
+                }
+            </tbody>
+       </table>
+   </section>
+    <section class="moviesLog">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Borrow Id</th>
+                    <th>Movie Title</th>
+                    <th>Borrow Date</th>
+                    <th>Due Date</th>
+                    <th>Return Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var Movie in Model.MemberMovies)
+                {
+                    <tr>
+                        <td>@Movie.BorrowId</td>
+                        <td>@Movie.MovieName</td>
+                        <td>@Movie.BorrowDate</td>
+                        <td>@Movie.DueDate</td>
+                        <td>@Movie.ReturnDate</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </section>
+</main>

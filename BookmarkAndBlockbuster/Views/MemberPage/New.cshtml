@@ -1,0 +1,21 @@
+﻿<h1>Add a new member</h1>
+
+<form action="/MemberPage/Add" method="POST">
+    <div class="inputBox">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="MemberName"/>
+    </div>
+    <div class="inputBox">
+        <label for="birthDate">Date of Birth:</label>
+        <input type="date" id="birthDate" name="BirthDate" />
+    </div>
+    <div class="inputBox">
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="MemberPhone" />
+    </div>
+    <div class="inputBox">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="MemberEmail" />
+    </div>
+    <button class="btn" type="submit">Submit</button>
+</form>

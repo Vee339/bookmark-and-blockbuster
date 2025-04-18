@@ -13,5 +13,9 @@ namespace BookmarkAndBlockbuster.Interfaces
         public Task<string> UpdateBooksLog(int id, BooksLog booksLog);
 
         public Task<string> DeleteBooksLog(int id);
+
+        public Task<IEnumerable<BooksLogDto>> GetBooksLogForMember(int id);
+
+        public Task<IEnumerable<BooksLogDto>> GetBooksLogForBook(int id);
     }
 }

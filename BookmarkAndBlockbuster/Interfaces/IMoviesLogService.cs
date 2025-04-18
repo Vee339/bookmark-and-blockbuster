@@ -13,5 +13,9 @@ namespace BookmarkAndBlockbuster.Interfaces
         public Task<string> UpdateMoviesLog(int id, MoviesLog moviesLog);
 
         public Task<string> DeleteMoviesLog(int id);
+
+        public Task<IEnumerable<MoviesLogDto>> GetMoviesLogForMember(int id);
+
+        public Task<IEnumerable<MoviesLogDto>> GetMoviesLogForMovie(int id);
     }
 }

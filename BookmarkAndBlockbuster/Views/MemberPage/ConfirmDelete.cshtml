@@ -1,0 +1,8 @@
+﻿@model Member
+
+<h1>Are you sure you want to delete the member @Model.MemberName</h1>
+
+<a href="/MemberPage/Details/@Model.MemberId">Cancel</a>
+<form method="POST" action="/MemberPage/Delete/@Model.MemberId">
+     <input type="submit" value="Confirm Delete"/>    
+</form>

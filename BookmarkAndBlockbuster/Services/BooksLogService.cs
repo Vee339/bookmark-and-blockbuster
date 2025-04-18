@@ -113,6 +113,52 @@ namespace BookmarkAndBlockbuster.Services
             return "No Content";
         }
 
+        public async Task<IEnumerable<BooksLogDto>> GetBooksLogForMember(int id)
+        {
+            List<BooksLog> BooksLogs = await _context.BooksLogs.Include(bl => bl.Member).Include(bl => bl.Book).Where(bl => bl.MemberId == id).ToListAsync();
+
+            List<BooksLogDto> BooksLogDtos = new List<BooksLogDto>();
+
+            foreach (BooksLog BooksLog in BooksLogs)
+            {
+                BooksLogDto BooksLogDto = new BooksLogDto
+                {
+                    BorrowId = BooksLog.BorrowId,
+                    MemberName = BooksLog.Member.MemberName,
+                    BookName = BooksLog.Book.BookTitle,
+                    BorrowDate = BooksLog.BorrowDate,
+                    DueDate = BooksLog.DueDate,
+                    ReturnDate = BooksLog.ReturnDate,
+                };
+
+                BooksLogDtos.Add(BooksLogDto);
+            }
+            return BooksLogDtos;
+        }
+
+        public async Task<IEnumerable<BooksLogDto>> GetBooksLogForBook(int id)
+        {
+            List<BooksLog> BooksLogs = await _context.BooksLogs.Include(bl => bl.Member).Include(bl => bl.Book).Where(bl => bl.BookId == id).ToListAsync();
+
+            List<BooksLogDto> BooksLogDtos = new List<BooksLogDto>();
+
+            foreach (BooksLog BooksLog in BooksLogs)
+            {
+                BooksLogDto BooksLogDto = new BooksLogDto
+                {
+                    BorrowId = BooksLog.BorrowId,
+                    MemberName = BooksLog.Member.MemberName,
+                    BookName = BooksLog.Book.BookTitle,
+                    BorrowDate = BooksLog.BorrowDate,
+                    DueDate = BooksLog.DueDate,
+                    ReturnDate = BooksLog.ReturnDate,
+                };
+
+                BooksLogDtos.Add(BooksLogDto);
+            }
+            return BooksLogDtos;
+        }
+
         private bool BooksLogExists(int id)
         {
             return _context.BooksLogs.Any(e => e.BorrowId == id);

@@ -113,6 +113,52 @@ namespace BookmarkAndBlockbuster.Services
             return "No Content";
         }
 
+        public async Task<IEnumerable<MoviesLogDto>> GetMoviesLogForMember(int id)
+        {
+            List<MoviesLog> MoviesLogs = await _context.MoviesLogs.Include(ml => ml.Member).Include(ml => ml.Movie).Where(ml => ml.MemberId == id).ToListAsync();
+
+            List<MoviesLogDto> MoviesLogDtos = new List<MoviesLogDto>();
+
+            foreach (MoviesLog MoviesLog in MoviesLogs)
+            {
+                MoviesLogDto MoviesLogDto = new MoviesLogDto
+                {
+                    BorrowId = MoviesLog.BorrowId,
+                    MemberName = MoviesLog.Member.MemberName,
+                    MovieName = MoviesLog.Movie.Title,
+                    BorrowDate = MoviesLog.BorrowDate,
+                    DueDate = MoviesLog.DueDate,
+                    ReturnDate = MoviesLog.ReturnDate,
+                };
+
+                MoviesLogDtos.Add(MoviesLogDto);
+            }
+            return MoviesLogDtos;
+        }
+
+        public async Task<IEnumerable<MoviesLogDto>> GetMoviesLogForMovie(int id)
+        {
+            List<MoviesLog> MoviesLogs = await _context.MoviesLogs.Include(ml => ml.Member).Include(ml => ml.Movie).Where(ml => ml.MovieId == id).ToListAsync();
+
+            List<MoviesLogDto> MoviesLogDtos = new List<MoviesLogDto>();
+
+            foreach (MoviesLog MoviesLog in MoviesLogs)
+            {
+                MoviesLogDto MoviesLogDto = new MoviesLogDto
+                {
+                    BorrowId = MoviesLog.BorrowId,
+                    MemberName = MoviesLog.Member.MemberName,
+                    MovieName = MoviesLog.Movie.Title,
+                    BorrowDate = MoviesLog.BorrowDate,
+                    DueDate = MoviesLog.DueDate,
+                    ReturnDate = MoviesLog.ReturnDate,
+                };
+
+                MoviesLogDtos.Add(MoviesLogDto);
+            }
+            return MoviesLogDtos;
+        }
+
         private bool MoviesLogExists(int id)
         {
             return _context.MoviesLogs.Any(e => e.BorrowId == id);

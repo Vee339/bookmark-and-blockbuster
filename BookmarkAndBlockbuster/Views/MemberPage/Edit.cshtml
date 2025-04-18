@@ -1,0 +1,26 @@
+﻿@model Member
+
+<h1>Edit the information of @Model.MemberName</h1>
+
+<form action="/MemberPage/Update/@Model.MemberId" method="POST">
+    <div class="inputBox" style="display:none;">
+        <input type="number" name="MemberId" value="@Model.MemberId"/>
+    </div>
+    <div class="inputBox">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="MemberName" value="@Model.MemberName"/>
+    </div>
+    <div class="inputBox">
+        <label for="birthDate">Date of Birth:</label>
+        <input type="date" id="birthDate" name="BirthDate" value="@Model.BirthDate"/>
+    </div>
+    <div class="inputBox">
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="MemberPhone" value="@Model.MemberPhone"/>
+    </div>
+    <div class="inputBox">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="MemberEmail" value="@Model.MemberEmail"/>
+    </div>
+    <button class="btn" type="submit">Submit</button>
+</form>

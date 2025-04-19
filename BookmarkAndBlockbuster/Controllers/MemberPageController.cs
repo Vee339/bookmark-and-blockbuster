@@ -36,7 +36,7 @@ namespace BookmarkAndBlockbuster.Controllers
         public async Task<IActionResult> Details(int id)
         {
             Member Member = await _memberService.FindMember(id);
-            IEnumerable <BooksLogDto> BooksLog  = await _booksLogService.GetBooksLogForMember(id);
+            IEnumerable<BooksLogDto> BooksLog  = await _booksLogService.GetBooksLogForMember(id);
             IEnumerable<MoviesLogDto> MoviesLog = await _moviesLogService.GetMoviesLogForMember(id);
 
             MemberDetails MemberInfo = new MemberDetails()
@@ -53,6 +53,7 @@ namespace BookmarkAndBlockbuster.Controllers
         public IActionResult New()
         {
             return View();
+
         }
 
         // POST -> MemberPage/Add

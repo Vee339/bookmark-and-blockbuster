@@ -1,0 +1,60 @@
+﻿@model BookmarkAndBlockbuster.Models.ViewModels.AuthorDetails;
+
+<main class="details">
+    <header>
+        <h1>Personal Information of @Model.Author.AuthorName</h1>
+        <a href="/AuthorPage/Edit/@Model.Author.AuthorId">Edit</a>
+        <a href="/AuthorPage/ConfirmDelete/@Model.Author.AuthorId">Delete</a>
+    </header>
+    <section class="info">
+        <p>Id: @Model.Author.AuthorId</p>
+        <p>AuthorName: @Model.Author.AuthorName</p>
+        <p>Bio: @Model.Author.AuthorDescription</p>
+    </section>
+    <section class="authorBooks">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Book Id</th>
+                    <th>Book Title</th>
+                    <th>Published Year</th>
+                    <th>Genre</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var Book in Model.AuthorBooks)
+                {
+                    <tr>
+                        <td>@Book.BookId</td>
+                        <td>@Book.BookTitle</td>
+                        <td>@Book.PublishedYear</td>
+                        <td>@Book.Genre</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </section>
+    <section class="authroMovies">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Movie Id</th>
+                    <th>Movie Name</th>
+                    <th>Release Year</th>
+                    <th>Genre</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var Movie in Model.AuthorMovies)
+                {
+                    <tr>
+                        <td>@Movie.MovieId</td>
+                        <td>@Movie.MovieName</td>
+                        <td>@Movie.ReleaseYear</td>
+                        <td>@Movie.Genre</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </section>
+</main>

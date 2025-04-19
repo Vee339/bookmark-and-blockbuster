@@ -1,0 +1,9 @@
+﻿@model Author
+
+<h1>Are you sure you want to delete the author @Model.AuthorName?</h1>
+
+<a href="/AuthorPage/Details/@Model.AuthorId">Cancel</a>
+
+<form method="POST" action="/AuthorPage/Delete/@Model.AuthorId">
+    <input type="submit" value="Confirm Delete"/>    
+</form>

@@ -1,0 +1,16 @@
+﻿@model Author
+
+<form action="/AuthorPage/Update/@Model.AuthorId" method="POST">
+    <div class="inputBox" style="display:none;">
+        <input type="number" name="AuthorId" value="@Model.AuthorId" />
+    </div>
+    <div class="inputBox">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="AuthorName" value="@Model.AuthorName"/>
+    </div>
+    <div class="inputBox">
+        <label for="description">Bio:</label>
+        <textarea id="description" name="AuthorDescription">@Model.AuthorDescription</textarea>
+    </div>
+    <button class="btn" type="submit">Submit</button>
+</form>

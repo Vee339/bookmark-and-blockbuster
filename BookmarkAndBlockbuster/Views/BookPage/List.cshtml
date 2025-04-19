@@ -1,0 +1,14 @@
+﻿@model IEnumerable<Book> 
+
+<header>
+    <h1>List of the Books</h1>
+    <a href="/BookPage/New">Insert New</a>
+</header>
+<div class="row">
+    @foreach (var Book in Model)
+    {
+        <div>
+            <a href="/BookPage/Details/@Book.BookId">@Book.BookTitle</a>
+        </div>
+    }
+</div>

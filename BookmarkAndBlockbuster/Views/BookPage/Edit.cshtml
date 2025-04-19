@@ -1,0 +1,31 @@
+﻿@model BookmarkAndBlockbuster.Models.ViewModels.EditBookViewModel
+
+<h1>Edit the book @Model.Book.BookTitle</h1>
+
+<form action="/BookPage/Update/@Model.Book.BookId" method="POST">
+    <div class="inputBox" style="display:none;">
+        <input type="number" name="BookId" value="@Model.Book.BookId" />
+    </div>
+    <div class="inputBox">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="BookTitle" value="@Model.Book.BookTitle" />
+    </div>
+    <div class="inputBox">
+        <label for="author">Author:</label>
+        <select name="AuthorId">
+            @foreach (var Author in Model.Authors)
+            { 
+              <option value="@Author.AuthorId">@Author.AuthorName</option>
+            }
+        </select>
+    </div>
+    <div class="inputBox">
+        <label for="year">Published Year:</label>
+        <input type="number" id="year" name="PublishedYear" value="@Model.Book.PublishedYear" />
+    </div>
+    <div class="inputBox">
+        <label for="genre">Genre:</label>
+        <input type="text" id="genre" name="Genre" value="@Model.Book.Genre" />
+    </div>
+    <button class="btn" type="submit">Submit</button>
+</form>

@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Author>
+
+<h1>Add a new Book</h1>
+
+<form action="/BookPage/Add" method="POST">
+    <div class="inputBox">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="BookTitle" />
+    </div>
+    <div class="inputBox">
+        <label for="author">Author:</label>
+        <select name="AuthorId">
+            <option value="" selected disabled>Select from the list</option>
+            @foreach(var Author in Model){
+                <option value="@Author.AuthorId">@Author.AuthorName</option>
+            }
+        </select>
+    </div>
+    <div class="inputBox">
+        <label for="year">Published Year:</label>
+        <input type="number" id="year" name="PublishedYear" />
+    </div>
+    <div class="inputBox">
+        <label for="genre">Genre:</label>
+        <input type="text" id="genre" name="Genre" />
+    </div>
+    <button class="btn" type="submit">Submit</button>
+</form>

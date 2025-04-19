@@ -1,0 +1,9 @@
+﻿@model Book
+
+<h1>Are you sure you want to delete the book @Model.BookTitle?</h1>
+
+<a href="/BookPage/Details/@Model.BookId">Cancel</a>
+
+<form method="POST" action="/BookPage/Delete/@Model.BookId">
+    <input type="submit" value="Confirm Delete" />
+</form>

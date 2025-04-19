@@ -1,0 +1,40 @@
+﻿@model BookmarkAndBlockbuster.Models.ViewModels.BookDetails
+
+<main class="details">
+    <header>
+        <h1>Information of the book @Model.Book.BookTitle</h1>
+        <a href="/BookPage/Edit/@Model.Book.BookId">Edit</a>
+        <a href="/BookPage/ConfirmDelete/@Model.Book.BookId">Delete</a>
+    </header>
+    <section class="info">
+        <p>Id: @Model.Book.BookId</p>
+        <p>Title: @Model.Book.BookTitle</p>
+        <p>Year of Publication: @Model.Book.PublishedYear</p>
+        <p>Genre: @Model.Book.Genre</p>
+    </section>
+    <section class="booksLog">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Borrow Id</th>
+                    <th>Book Title</th>
+                    <th>Borrow Date</th>
+                    <th>Due Date</th>
+                    <th>Return Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var Book in Model.BooksLog)
+                {
+                    <tr>
+                        <td>@Book.BorrowId</td>
+                        <td>@Book.BookName</td>
+                        <td>@Book.BorrowDate</td>
+                        <td>@Book.DueDate</td>
+                        <td>@Book.ReturnDate</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </section>
+</main>

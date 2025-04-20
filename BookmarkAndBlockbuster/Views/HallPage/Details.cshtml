@@ -1,0 +1,40 @@
+﻿@model BookmarkAndBlockbuster.Models.ViewModels.HallDetails
+
+<main class="details">
+    <header>
+        <h1>Information about the hall - @Model.Hall.Name</h1>
+        <a href="/HallPage/Edit/@Model.Hall.Id">Edit</a>
+        <a href="/HallPage/ConfirmDelete/@Model.Hall.Id">Delete</a>
+    </header>
+    <section class="info">
+        <p>Id: @Model.Hall.Id</p>
+        <p>Hall Name: @Model.Hall.Name</p>
+        <p>Location: @Model.Hall.Location</p>
+        <p>Capacity: @Model.Hall.Capacity</p>
+    </section>
+    <section class="hallScreenings screenings">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Screening Id</th>
+                    <th>Movie</th>
+                    <th>Show Date</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var Screening in Model.Screenings)
+                {
+                    <tr>
+                        <td>@Screening.ScreeningId</td>
+                        <td>@Screening.Movie</td>
+                        <td>@Screening.ShowDate</td>
+                        <td>@Screening.StartTime</td>
+                        <td>@Screening.EndTime</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </section>
+</main>

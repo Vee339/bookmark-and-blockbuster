@@ -1,0 +1,40 @@
+﻿@model BookmarkAndBlockbuster.Models.ViewModels.MovieDetails
+
+<main class="details">
+    <header>
+        <h1>Information about the movie - @Model.Movie.MovieName</h1>
+        <a href="/MoviePage/Edit/@Model.Movie.MovieId">Edit</a>
+        <a href="/MoviePage/ConfirmDelete/@Model.Movie.MovieId">Delete</a>
+    </header>
+    <section class="info">
+        <p>Id: @Model.Movie.MovieName</p>
+        <p>Release Year: @Model.Movie.ReleaseYear</p>
+        <p>Genre: @Model.Movie.Genre</p>
+        <p>Author: @Model.Movie.AuthorName</p>
+    </section>
+    <section class="movieScreenings">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Screening Id</th>
+                    <th>Hall</th>
+                    <th>Show Date</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var Screening in Model.Screenings)
+                {
+                    <tr>
+                        <td>@Screening.ScreeningId</td>
+                        <td>@Screening.Hall</td>
+                        <td>@Screening.ShowDate</td>
+                        <td>@Screening.StartTime</td>
+                        <td>@Screening.EndTime</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </section>
+</main>

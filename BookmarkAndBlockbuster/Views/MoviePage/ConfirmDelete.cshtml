@@ -1,0 +1,7 @@
+﻿@model MovieDto
+
+<h1>Are you sure you want to delete the movie - @Model.MovieName</h1>
+<a href="/MoviePage/Details/@Model.MovieId">Cancel</a>
+<form method="POST" action="/MoviePage/Delete/@Model.MovieId">
+    <input type="submit" value="ConfirmDelete"/>    
+</form>

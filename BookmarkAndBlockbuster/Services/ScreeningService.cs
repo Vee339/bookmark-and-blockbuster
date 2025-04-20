@@ -123,7 +123,7 @@ namespace BookmarkAndBlockbuster.Services
                 {
                     ScreeningId = Screening.ScreeningId,
                     Movie = Screening.Movie.Title,
-                    Hall = Screening.Hall.Name + " " + Screening.Hall.Location,
+                    Hall = Screening.Hall.Name,
                     ShowDate = Screening.ScreeningDate,
                     StartTime = Screening.StartTime,
                     EndTime = Screening.EndTime
@@ -146,7 +146,7 @@ namespace BookmarkAndBlockbuster.Services
                 {
                     ScreeningId = Screening.ScreeningId,
                     Movie = Screening.Movie.Title,
-                    Hall = Screening.Hall.Name + " " + Screening.Hall.Location,
+                    Hall = Screening.Hall.Name,
                     ShowDate = Screening.ScreeningDate,
                     StartTime = Screening.StartTime,
                     EndTime = Screening.EndTime

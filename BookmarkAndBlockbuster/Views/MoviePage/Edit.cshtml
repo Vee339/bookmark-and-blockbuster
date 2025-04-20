@@ -1,0 +1,35 @@
+﻿@model BookmarkAndBlockbuster.Models.ViewModels.MovieDetails;
+
+<h1>Edit the movie - @Model.Movie.MovieName</h1>
+
+<form action="/MoviePage/Update/@Model.Movie.MovieId" method="POST">
+    <div class="inputBox" style="display:none;">
+        <input type="number" value="@Model.Movie.MovieId" name="MovieId"/>
+    </div>
+    <div class="inputBox">
+        <label for="name">Title:</label>
+        <input type="text" id="name" name="Title" value="@Model.Movie.MovieName"/>
+    </div>
+    <div class="inputBox">
+        <label for="genre">Genre:</label>
+        <input type="text" id="genre" name="Genre" value="@Model.Movie.Genre"/>
+    </div>
+    <div class="inputBox">
+        <label for="releaseYear">Releasing Year:</label>
+        <input type="number" id="releasingYear" name="ReleaseYear" value="@Model.Movie.ReleaseYear"/>
+    </div>
+    <div class="inputBox">
+        <label for="authorId">Author:</label>
+        <select name="AuthorId">
+            @foreach (var Author in Model.Authors)
+            {
+                @if(Author.AuthorName == Model.Movie.AuthorName){
+                    <option value="@Author.AuthorId" selected>@Author.AuthorName</option>
+                }else{
+                    <option value="@Author.AuthorId">@Author.AuthorName</option>
+                }
+            }
+        </select>
+    </div>
+    <button class="btn" type="submit">Update</button>
+</form>

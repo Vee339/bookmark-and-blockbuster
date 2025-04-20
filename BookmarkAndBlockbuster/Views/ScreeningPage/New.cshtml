@@ -1,0 +1,39 @@
+﻿@model BookmarkAndBlockbuster.Models.ViewModels.MoviesHalls
+
+<h1>Add a new Screening</h1>
+
+<form method="POST" action="/ScreeningPage/Add">
+    <div class="inputBox">
+        <label for="movie">Movie:</label>
+        <select id="movie" name="MovieId">
+            <option value="" disabled selected>Select from the list</option>
+            @foreach (var Movie in Model.Movies)
+            {
+                <option value="@Movie.MovieId">@Movie.MovieName</option>
+            }
+        </select>
+    </div>
+    <div class="inputBox">
+        <label for="hall">Hall:</label>
+        <select id="hall" name="Id">
+            <option value="" disabled selected>Select from the list</option>
+            @foreach (var Hall in Model.Halls)
+            {
+                <option value="@Hall.Id">@Hall.Name</option>
+            }
+        </select>
+    </div>
+    <div class="inputBox">
+        <label for="screeningDate">Date:</label>
+        <input type="date" id="screeningDate" name="ScreeningDate" />
+    </div>
+    <div class="inputBox">
+        <label for="startTime">Start Time:</label>
+        <input type="time" id="startTime" name="StartTime" />
+    </div>
+    <div class="inputBox">
+        <label for="endTime">End Time:</label>
+        <input type="time" id="endTime" name="EndTime" />
+    </div>
+    <input type="submit" value="Submit" />
+</form>
